@@ -20,7 +20,7 @@ const Course = ({ course }) => {
                         <div className="badge badge-outline font-bold"><FaClock className='mx-2'></FaClock> {duration}</div>
                         <div className="badge badge-outline font-bold"><FaStar className='text-yellow-500 mx-2'></FaStar> {ratting}</div>
                     </div>
-                    <Link to={`../course/${id}`}><button className="btn btn-outline btn-secondary rounded-2xl">Course Details</button></Link>
+                    <Link to={`../courses/course/${id}`}><button className="btn btn-outline btn-secondary rounded-2xl">Course Details</button></Link>
 
                 </div>
             </div>
