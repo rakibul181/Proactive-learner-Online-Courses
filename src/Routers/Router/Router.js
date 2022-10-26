@@ -30,8 +30,8 @@ export const router = createBrowserRouter([
                     {
                         path: '/courses/course/:id',
                         element: <CourseDetails></CourseDetails>,
-                        loader: ({ params }) => {fetch(`https://proactive-learner-server.vercel.app/course/${params.id}`)
-                        }
+                        loader: ({ params }) =>fetch(`https://proactive-learner-server.vercel.app/course/${params.id}`)
+                        
                     }
                 ]
 

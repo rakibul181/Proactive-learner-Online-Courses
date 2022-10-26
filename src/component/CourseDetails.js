@@ -1,70 +1,109 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { FaArchive, FaBook, FaClock, FaFeather, FaHardHat, FaSignal, FaStar } from 'react-icons/fa';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
 const CourseDetails = () => {
-    const course = useLoaderData()
-    console.log(course);
+    const { id, chapter, courseID, courseName, courseSummery, learning_outcome, price, timeCommitment, outcome, prerequisites, creadit, difficulty, duration, picture, ratting } = useLoaderData()
+
+
     return (
+        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+            <div className="mx-auto sm:text-center lg:max-w-2xl">
+                <div className="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">
 
+                    <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
 
-        <div className='col-span-3'>
-            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
-                    <div className="flex flex-col justify-center">
-                        <div className="max-w-xl mb-6">
-                            <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none">
-                                The quick, brown fox
-                                <br className="hidden md:block" />
-                                jumps over{' '}
-                                <span className="relative px-1">
-                                    <div className="absolute inset-x-0 bottom-0 h-3 transform -skew-x-12 bg-teal-accent-400" />
-                                    <span className="relative inline-block text-deep-purple-accent-400">
-                                        a lazy dog
-                                    </span>
-                                </span>
-                            </h2>
-                            <p className="text-base text-gray-700 md:text-lg">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                                quae. explicabo.
-                            </p>
-                        </div>
-                        <div className="grid gap-5 row-gap-8 sm:grid-cols-2">
-                            <div className="bg-white border-l-4 shadow-sm border-deep-purple-accent-400">
-                                <div className="h-full p-5 border border-l-0 rounded-r">
-                                    <h6 className="mb-2 font-semibold leading-5">
-                                        I'll be sure to note that in my log
-                                    </h6>
-                                    <p className="text-sm text-gray-900">
-                                        Lookout flogging bilge rat main sheet bilge water nipper fluke
-                                        to go on account heave down.
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="bg-white border-l-4 shadow-sm border-deep-purple-accent-400">
-                                <div className="h-full p-5 border border-l-0 rounded-r">
-                                    <h6 className="mb-2 font-semibold leading-5">
-                                        A business big enough that it could be listed
-                                    </h6>
-                                    <p className="text-sm text-gray-900">
-                                        Those options are already baked in with this model shoot me an
-                                        email clear.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <img
-                            className="object-cover w-full h-56 rounded shadow-lg sm:h-96"
-                            src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
-                            alt=""
-                        />
-                    </div>
+                        {courseID}: {courseName}
+                    </h2>
+                    <p className="text-base text-gray-700 md:text-lg">
+                        {outcome}
+                    </p>
                 </div>
+                <div className="mb-4 transition-shadow duration-300 hover:shadow-xl lg:mb-6">
+                    <img
+                        className="object-cover w-full h-56 rounded shadow-lg sm:h-64 md:h-80 lg:h-96"
+                        src={picture}
+                        alt=""
+                    />
+                </div>
+
+                <h2 className="max-w-lg mb-6 font-sans text-2xl font-bold leading-none tracking-tight text-gray-900 sm:text-2xl md:mx-auto">Course Summery</h2>
+                <p className="max-w-xl mb-4 text-base text-justify text-gray-700 sm:mx-auto">
+                    {courseSummery}
+                </p>
+
             </div>
-        </div>
+            <div className="card-actions font-bold text justify-end">
+                <div className="badge p-4 badge-outline font-bold"><FaBook className='mx-2'></FaBook>Course: {courseID}</div>
+                <div className="badge p-4 badge-outline font-bold"><FaSignal className='mx-2'></FaSignal>{difficulty}</div>
+                <div className="badge p-4 badge-outline font-bold">Creadit: {creadit}</div>
+                <div className="badge p-4 badge-outline font-bold"><FaClock className='mx-2'></FaClock>Duration: {duration}</div>
+                <div className="badge p-4 badge-outline font-bold"><FaStar className='text-yellow-500 mx-2'></FaStar> {ratting}</div>
+                <div className="badge p-4 badge-outline font-bold"><FaHardHat className='text-red-500 mx-2'></FaHardHat> Prerequisites: {prerequisites}</div>
+                <div className="badge p-4 badge-outline font-bold"><FaArchive className='  mx-2'></FaArchive> Time Commitment: {timeCommitment}</div>
+
+            </div>
+
+
+            <div className='my-10'>
+                <h6 className="mb-3 mx-auto text-xl font-bold leading-5">Syllabus</h6>
+                <div className=" max-w-screen-lg gap-8 mx-auto ">
+                    {
+                        chapter.map(ch => {
+                            return (
+                                <div className="flex items-center max-w-md sm:mx-auto flex-row">
+                                    <div className="mr-4">
+                                        <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
+                                            <FaBook></FaBook>
+                                        </div>
+                                    </div>
+
+                                    <p className="mb-3 text-sm text-gray-900">
+                                        {ch}
+                                    </p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+
+            </div>
+
+
+            <div className='my-10'>
+                <h6 className="mb-3 text-xl font-bold leading-5">Learning Outcome</h6>
+                <div className="grid max-w-screen-lg gap-8 row-gap-10 mx-auto lg:grid-cols-2">
+                    {
+                        learning_outcome.map(lo => {
+                            return (
+                                <div className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
+                                    <div className="mr-4">
+                                        <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
+                                            <FaFeather></FaFeather>
+                                        </div>
+                                    </div>
+
+                                    <p className="mb-3 text-sm text-gray-900">
+                                        {lo}
+                                    </p>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+
+            </div>
+
+            <h2 className="text-center max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
+
+                Course Fee: ${price}
+            </h2>
+            
+            <div className='flex justify-center'>
+            <Link to={`/chackout/${id}`}><button className="max-w-lg  mb-6 font-sans text-2xl font-bold leading-none tracking-tight btn btn-secondary btn-outline rounded-lg text-white text-center sm:text-2xl md:mx-auto"  >Enrole Now</button></Link>
+            </div>
+        </div >
     );
 };
 
