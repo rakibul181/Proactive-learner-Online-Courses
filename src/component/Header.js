@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../image/logo.png'
 import { FaBars, FaTimes, } from "react-icons/fa";
+import { AuthContext } from '../Contexts/AuthProvider';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const { user } = useContext(AuthContext)
     return (
         <div className="bg-gray-900">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -66,9 +68,28 @@ const Header = () => {
                         </ul>
                     </div>
                     <ul className="flex items-center hidden space-x-8 lg:flex">
-                        <li>
+
+                        {
+                            (user) ?
+                                <>
+                                    <li>
+                                        <div className="avatar online">
+                                            <div className="w-10 rounded-full">
+                                                <img src={user.photoURL} />
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button className='btn btn-outline btn-error btn-sm'>
+                                            Log Out
+                                        </button>
+                                    </li>
+                                </>
+                                :
+                                <>
+                                    <li>
                             <Link
-                                to="../signin"
+                                to="signin"
                                 aria-label="Sign in"
                                 title="Sign in"
                                 className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
@@ -78,14 +99,18 @@ const Header = () => {
                         </li>
                         <li>
                             <Link
-                                to="../signup"
+                                to="resister"
                                 className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                 aria-label="Sign up"
                                 title="Sign up"
                             >
-                                Sign up
+                                Resister
                             </Link>
                         </li>
+                                </>
+                        }
+
+                        
                         <li>
                             <input type="checkbox" className="toggle" />
                         </li>
@@ -181,12 +206,12 @@ const Header = () => {
                                             </li>
                                             <li>
                                                 <Link
-                                                    to="signup"
+                                                    to="resister"
                                                     aria-label="Sign Up"
                                                     title="Sign Up"
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    Sign up
+                                                    Resister
                                                 </Link>
                                             </li>
                                             <li>
