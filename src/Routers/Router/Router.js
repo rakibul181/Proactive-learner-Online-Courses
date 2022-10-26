@@ -1,7 +1,8 @@
-import Courses from "../../component/Courses";
+import { createBrowserRouter } from "react-router-dom";
+import CoursesContainear from "../../component/CoursesContainear";
 import Main from "../../Layout/Main";
 
-const { createBrowserRouter } = require("react-router-dom");
+ 
  
 
 export const router = createBrowserRouter([
@@ -11,8 +12,8 @@ export const router = createBrowserRouter([
         children:[
             {
                 path:'courses',
-                element:<Courses></Courses>,
-                loader: ()=>fetch('http://localhost:5000/courses')
+                element:<CoursesContainear></CoursesContainear>,
+                loader: ()=>fetch('https://proactive-learner-server.vercel.app/courses')
             }
         ]
 

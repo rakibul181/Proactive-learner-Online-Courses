@@ -87,8 +87,8 @@ const Header = () => {
                             </Link>
                         </li>
                         <li>
-                                                <input type="checkbox" className="toggle"  />
-                                            </li>
+                            <input type="checkbox" className="toggle" />
+                        </li>
                     </ul>
                     <div className="lg:hidden">
                         <button
@@ -190,7 +190,7 @@ const Header = () => {
                                                 </Link>
                                             </li>
                                             <li>
-                                                <input type="checkbox" className="toggle"  />
+                                                <input type="checkbox" className="toggle" />
                                             </li>
                                         </ul>
                                     </nav>
