@@ -101,7 +101,7 @@ const CourseDetails = () => {
             </h2>
             
             <div className='flex justify-center'>
-            <Link to={`/chackout/${id}`}><button className="max-w-lg  mb-6 font-sans text-2xl font-bold leading-none tracking-tight btn btn-secondary btn-outline rounded-lg text-white text-center sm:text-2xl md:mx-auto"  >Enrole Now</button></Link>
+            <Link to={`/enrole/${id}`}><button className="max-w-lg  mb-6 font-sans text-2xl font-bold leading-none tracking-tight btn btn-secondary btn-outline rounded-lg text-white text-center sm:text-2xl md:mx-auto"  >Enrole Now</button></Link>
             </div>
         </div >
     );
