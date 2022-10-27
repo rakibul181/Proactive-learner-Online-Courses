@@ -50,9 +50,9 @@ const CourseDetails = () => {
                 <h6 className="mb-3 mx-auto text-xl font-bold leading-5">Syllabus</h6>
                 <div className=" max-w-screen-lg gap-8 mx-auto ">
                     {
-                        chapter.map(ch => {
+                        chapter.map((ch,idx) => {
                             return (
-                                <div className="flex items-center max-w-md sm:mx-auto flex-row">
+                                <div key={idx} className="flex items-center max-w-md sm:mx-auto flex-row">
                                     <div className="mr-4">
                                         <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
                                             <FaBook></FaBook>
@@ -75,9 +75,9 @@ const CourseDetails = () => {
                 <h6 className="mb-3 text-xl font-bold leading-5">Learning Outcome</h6>
                 <div className="grid max-w-screen-lg gap-8 row-gap-10 mx-auto lg:grid-cols-2">
                     {
-                        learning_outcome.map(lo => {
+                        learning_outcome.map((lo,idx) => {
                             return (
-                                <div className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
+                                <div key={idx} className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
                                     <div className="mr-4">
                                         <div className="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
                                             <FaFeather></FaFeather>

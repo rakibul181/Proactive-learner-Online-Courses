@@ -18,6 +18,7 @@ const Login = () => {
                 const user = result.user
                 setError('')
                 console.log(user);
+                
             })
             .catch(e => {
                 setError(e.message)
@@ -48,6 +49,7 @@ const Login = () => {
             const user = result.user
             setError('')
             console.log(user);
+            form.reset()
         })
         .catch(e => {
             setError(e.message)

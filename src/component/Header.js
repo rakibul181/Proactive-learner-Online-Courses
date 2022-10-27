@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import logo from '../image/logo.png'
 import { FaBars, FaTimes, } from "react-icons/fa";
 import { AuthContext } from '../Contexts/AuthProvider';
+import ReactTooltip from 'react-tooltip';
+
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user } = useContext(AuthContext)
+    const { user, logOut } = useContext(AuthContext)
     return (
         <div className="bg-gray-900">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -75,12 +77,12 @@ const Header = () => {
                                     <li>
                                         <div className="avatar online">
                                             <div className="w-10 rounded-full">
-                                                <img src={user.photoURL} />
+                                                <img data-tip={user?.displayName || user?.email}src={user.photoURL} />
                                             </div>
                                         </div>
                                     </li>
                                     <li>
-                                        <button className='btn btn-outline btn-error btn-sm'>
+                                        <button onClick={()=>logOut()} className='btn btn-outline btn-error btn-sm'>
                                             Log Out
                                         </button>
                                     </li>
@@ -225,6 +227,7 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+            <ReactTooltip effect="solid" />
         </div>
     );
 };
