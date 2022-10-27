@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import CourseDetails from "../../component/CourseDetails";
 import CoursesContainear from "../../component/CoursesContainear";
 import Enrole from "../../component/Enrole";
+import ErrorPage from "../../component/ErrorPage";
 import Home from "../../component/Home";
 import Login from "../../component/Login";
 import Resister from "../../component/Resister";
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -48,13 +50,14 @@ export const router = createBrowserRouter([
                 element: <Resister></Resister>
             },
             {
-                path:'enrole/:id',
-                element:<PriveteRoute><Enrole></Enrole></PriveteRoute>,
+                path: 'enrole/:id',
+                element: <PriveteRoute><Enrole></Enrole></PriveteRoute>,
                 loader: ({ params }) => fetch(`https://proactive-learner-server.vercel.app/course/${params.id}`)
             }
 
         ]
 
 
-    }
+    },
+    
 ])

@@ -168,7 +168,7 @@ const Resister = () => {
                         </div>
                         <div className='m-6 '>
                             <button onClick={hendelGithubSignIn} className="btn w-full btn-outline btn-light" type="submit"><FaGithub className='mx-2 text-2xl'></FaGithub> Login With Github</button>
-                        </div>F
+                        </div>
                     </div>
                 </div>
             </div>
