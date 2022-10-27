@@ -7,7 +7,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <div className='mx-10 md:mx-15 xl:mx-24'>
+            <div>
                 <Outlet>
 
                 </Outlet>
