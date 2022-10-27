@@ -4,11 +4,11 @@ import logo from '../image/logo.png'
 import { FaBars, FaTimes, } from "react-icons/fa";
 import { AuthContext } from '../Contexts/AuthProvider';
 import ReactTooltip from 'react-tooltip';
-
+ 
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const { user, logOut } = useContext(AuthContext)
+    const { user, logOut} = useContext(AuthContext)
     return (
         <div className="bg-gray-900">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -20,7 +20,7 @@ const Header = () => {
                             title="Company"
                             className="inline-flex items-center mr-8"
                         >
-                            <img src={logo} alt="" style={{ width: '60px' }} />
+                            <img src={logo} alt="img" style={{ width: '60px' }} />
                             <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
                                 Proactive Learner
                             </span>
@@ -77,7 +77,7 @@ const Header = () => {
                                     <li>
                                         <div className="avatar online">
                                             <div className="w-10 rounded-full">
-                                                <img data-tip={user?.displayName || user?.email} src={user.photoURL} />
+                                                <img data-tip={user?.displayName || user?.email} alt='profile' src={user.photoURL} />
                                             </div>
                                         </div>
                                     </li>
@@ -203,7 +203,7 @@ const Header = () => {
                                                         <li>
                                                             <div className="avatar online">
                                                                 <div className="w-10 rounded-full">
-                                                                    <img data-tip={user?.displayName || user?.email} src={user.photoURL} />
+                                                                    <img data-tip={user?.displayName || user?.email} src={user.photoURL} alt='profile' />
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -252,6 +252,8 @@ const Header = () => {
             </div>
             <ReactTooltip effect="solid" />
         </div>
+
+    
     );
 };
 
