@@ -77,12 +77,12 @@ const Header = () => {
                                     <li>
                                         <div className="avatar online">
                                             <div className="w-10 rounded-full">
-                                                <img data-tip={user?.displayName || user?.email}src={user.photoURL} />
+                                                <img data-tip={user?.displayName || user?.email} src={user.photoURL} />
                                             </div>
                                         </div>
                                     </li>
                                     <li>
-                                        <button onClick={()=>logOut()} className='btn btn-outline btn-error btn-sm'>
+                                        <button onClick={() => logOut()} className='btn btn-outline btn-error btn-sm'>
                                             Log Out
                                         </button>
                                     </li>
@@ -90,29 +90,29 @@ const Header = () => {
                                 :
                                 <>
                                     <li>
-                            <Link
-                                to="signin"
-                                aria-label="Sign in"
-                                title="Sign in"
-                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                            >
-                                Sign in
-                            </Link>
-                        </li>
-                        <li>
-                            <Link
-                                to="resister"
-                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Resister
-                            </Link>
-                        </li>
+                                        <Link
+                                            to="signin"
+                                            aria-label="Sign in"
+                                            title="Sign in"
+                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                        >
+                                            Sign in
+                                        </Link>
+                                    </li>
+                                    <li>
+                                        <Link
+                                            to="resister"
+                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                            aria-label="Sign up"
+                                            title="Sign up"
+                                        >
+                                            Resister
+                                        </Link>
+                                    </li>
                                 </>
                         }
 
-                        
+
                         <li>
                             <input type="checkbox" className="toggle" />
                         </li>
@@ -127,7 +127,7 @@ const Header = () => {
                             <FaBars className='text-white text-3xl'></FaBars>
                         </button>
                         {isMenuOpen && (
-                            <div className="absolute top-0 left-0 w-full">
+                            <div className="absolute z-40 top-0 left-0 w-full">
                                 <div className="p-5 bg-white border rounded shadow-sm">
                                     <div className="flex items-center justify-between mb-4">
                                         <div>
@@ -196,26 +196,49 @@ const Header = () => {
                                                     FAQ
                                                 </Link>
                                             </li>
-                                            <li>
-                                                <Link
-                                                    to="signin"
-                                                    aria-label="Sign in"
-                                                    title="Sign in"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                >
-                                                    Sign in
-                                                </Link>
-                                            </li>
-                                            <li>
-                                                <Link
-                                                    to="resister"
-                                                    aria-label="Sign Up"
-                                                    title="Sign Up"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                >
-                                                    Resister
-                                                </Link>
-                                            </li>
+
+                                            {
+                                                (user) ?
+                                                    <>
+                                                        <li>
+                                                            <div className="avatar online">
+                                                                <div className="w-10 rounded-full">
+                                                                    <img data-tip={user?.displayName || user?.email} src={user.photoURL} />
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li>
+                                                            <button onClick={() => logOut()} className='btn btn-outline btn-error btn-sm'>
+                                                                Log Out
+                                                            </button>
+                                                        </li>
+                                                    </>
+                                                    :
+                                                    <>
+                                                        <li>
+                                                            <Link
+                                                                to="signin"
+                                                                aria-label="Sign in"
+                                                                title="Sign in"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                            >
+                                                                Sign in
+                                                            </Link>
+                                                        </li>
+                                                        <li>
+                                                            <Link
+                                                                to="resister"
+                                                                aria-label="Sign Up"
+                                                                title="Sign Up"
+                                                                className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
+                                                            >
+                                                                Resister
+                                                            </Link>
+                                                        </li>
+                                                    </>
+                                            }
+
+
                                             <li>
                                                 <input type="checkbox" className="toggle" />
                                             </li>
