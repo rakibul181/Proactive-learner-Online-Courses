@@ -1,5 +1,5 @@
 # Proactive Learner
-In this Website there are  courses in Physics
+In this Website there are some courses in Physics
 
 # This is  Education Platfrom Website
  Live Link--- [ForntEnd] (https://proactive-learner.web.app/)
@@ -17,7 +17,7 @@ In this Website there are  courses in Physics
 * React js
 
 ### BackEnd
-* NODE
+* NODE js
 * Express js
 
 ### NPM Package 
@@ -26,6 +26,11 @@ In this Website there are  courses in Physics
 * cors
 * Hot Toast
 * React Icon
+* react-tooltip
+
+### Hosting Provider
+* Firebase
+* vercel
 
 
 

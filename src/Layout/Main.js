@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../component/Header';
 import { Outlet } from 'react-router-dom';
+import Fotter from '../component/Fotter';
 
 
 const Main = () => {
@@ -13,6 +14,7 @@ const Main = () => {
                 </Outlet>
 
             </div>
+            <Fotter></Fotter>
 
         </div>
     );

@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../../component/Blog";
 import CourseDetails from "../../component/CourseDetails";
 import CoursesContainear from "../../component/CoursesContainear";
 import Enrole from "../../component/Enrole";
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: 'blog',
+                element: <Blog></Blog>
             },
             {
                 path: '/courses',

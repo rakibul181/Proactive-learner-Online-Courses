@@ -15,7 +15,8 @@ const CourseDetails = () => {
 
                     <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto">
 
-                        {courseID}: {courseName} <PDFFile pageID={'course-sum'} pageName={courseName}></PDFFile>
+                        {courseID}: {courseName} 
+                        <span className='m-4 py-2'><PDFFile pageID={'course-sum'} pageName={courseName}></PDFFile></span>
                     </h2>
                     <p className="text-base text-gray-700 md:text-lg">
                         {outcome}
@@ -51,7 +52,7 @@ const CourseDetails = () => {
                 <h6 className="mb-3 mx-auto text-xl font-bold leading-5">Syllabus</h6>
                 <div className=" max-w-screen-lg gap-8 mx-auto ">
                     {
-                        chapter.map((ch,idx) => {
+                        chapter.map((ch, idx) => {
                             return (
                                 <div key={idx} className="flex items-center max-w-md sm:mx-auto flex-row">
                                     <div className="mr-4">
@@ -76,7 +77,7 @@ const CourseDetails = () => {
                 <h6 className="mb-3 text-xl font-bold leading-5">Learning Outcome</h6>
                 <div className="grid max-w-screen-lg gap-8 row-gap-10 mx-auto lg:grid-cols-2">
                     {
-                        learning_outcome.map((lo,idx) => {
+                        learning_outcome.map((lo, idx) => {
                             return (
                                 <div key={idx} className="flex flex-col max-w-md sm:mx-auto sm:flex-row">
                                     <div className="mr-4">
@@ -100,9 +101,9 @@ const CourseDetails = () => {
 
                 Course Fee: ${price}
             </h2>
-            
+
             <div className='flex justify-center'>
-            <Link to={`/enrole/${id}`}><button className="max-w-lg  mb-6 font-sans text-2xl font-bold leading-none tracking-tight btn btn-secondary btn-outline rounded-lg text-white text-center sm:text-2xl md:mx-auto"  >Enrole Now</button></Link>
+                <Link to={`/enrole/${id}`}><button className="max-w-lg  mb-6 font-sans text-2xl font-bold leading-none tracking-tight btn btn-secondary btn-outline rounded-lg text-white text-center sm:text-2xl md:mx-auto"  >Enrole Now</button></Link>
             </div>
         </div >
     );
