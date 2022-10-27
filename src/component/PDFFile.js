@@ -1,31 +1,24 @@
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
-
-
-const styles = StyleSheet.create({
-    page: {
-        flexDirection: 'row',
-        backgroundColor: '#E4E4E4'
-    },
-    section: {
-        margin: 10,
-        padding: 10,
-        flexGrow: 1
+import { FaPrint } from 'react-icons/fa';
+ 
+ const PDFFile = ({pageID, pageName}) => {
+    const dowenloadDoc = ()=>{
+        const input = document.getElementById(pageID)
+        html2canvas(input).then((canvas)=>{
+            const imgData =canvas.toDataURL('image/png')
+            const pdf = new jsPDF('l','pt','a4')
+            pdf.addImage(imgData,'JPEG',0, 0)
+            pdf.save(pageName)
+        })
     }
-});
-const PDFFile = () => {
-    return (
-        <Document>
-            <Page size="A4" style={styles.page}>
-                <View style={styles.section}>
-                    <Text>Section #1</Text>
-                </View>
-                <View style={styles.section}>
-                    <Text>Section #2</Text>
-                </View>
-            </Page>
-        </Document>
-    );
-};
 
-export default PDFFile;
+    return (
+        <div>
+            <button onClick={dowenloadDoc}><FaPrint></FaPrint></button>
+        </div>
+    );
+ };
+ 
+ export default PDFFile;
